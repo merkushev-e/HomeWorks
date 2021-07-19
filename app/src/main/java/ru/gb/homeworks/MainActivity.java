@@ -2,32 +2,49 @@ package ru.gb.homeworks;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Editable;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.google.android.material.radiobutton.MaterialRadioButton;
 
-public class MainActivity extends AppCompatActivity {
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+
+
+public class MainActivity extends AppCompatActivity implements Constants{
 
     static EditText calculation;
     static TextView result;
     Calculator calculator;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int currentThemeCode = getCodeStyle();
+        int currentThemeResId = codeStyleToStyleId(currentThemeCode);
+        setTheme(currentThemeResId);
+
+
         setContentView(R.layout.activity_main);
 
         calculation = findViewById(R.id.calculation);
         result = findViewById(R.id.result);
 
         calculator = new Calculator();
+
+        findViewById(R.id.settingsButton).setOnClickListener(v -> {
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+        });
 
 
         findViewById(R.id.btn_0).setOnClickListener(v -> calculator.pushBtn0());
@@ -54,16 +71,39 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
+    }
+
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(Constants.getParamCounter(), calculator);
+        outState.putParcelable(Constants.PARAM_COUNTER, calculator);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        calculator = (Calculator) savedInstanceState.getParcelable(Constants.getParamCounter());
+        calculator = (Calculator) savedInstanceState.getParcelable(Constants.PARAM_COUNTER);
         calculator.updateCalculation();
+    }
+
+
+
+    protected int codeStyleToStyleId(int codeStyle) {
+        switch (codeStyle) {
+            case darkTheme:
+                return R.style.DarkTheme;
+            default:
+                return R.style.AppTheme;
+        }
+    }
+    protected int getCodeStyle() {
+        SharedPreferences preferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
+        return preferences.getInt(appTheme, lightTheme);
     }
 }
