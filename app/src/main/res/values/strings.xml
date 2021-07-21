@@ -19,4 +19,6 @@
     <string name="_add">+</string>
     <string name="_clear">Clear</string>
     <string name="_backspace">Backspace</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="dark_theme">Dark Theme</string>
 </resources>

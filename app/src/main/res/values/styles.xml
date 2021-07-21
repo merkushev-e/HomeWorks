@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Buttons" parent="AppTheme">
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="right_buttons" parent="AppTheme">
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViews" parent="AppTheme">
+        <item name="android:layout_marginBottom">@dimen/edittext_margin_bottom</item>
+        <item name="android:textSize"> @dimen/edittext_text_size</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+
+</resources>
