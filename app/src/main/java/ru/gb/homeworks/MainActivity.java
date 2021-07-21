@@ -106,4 +106,6 @@ public class MainActivity extends AppCompatActivity implements Constants{
         SharedPreferences preferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
         return preferences.getInt(appTheme, lightTheme);
     }
+
+
 }

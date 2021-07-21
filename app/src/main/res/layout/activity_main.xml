@@ -34,8 +34,7 @@
 
         android:id="@+id/btn1"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
         android:text="@string/_1"
         app:layout_constraintBottom_toTopOf="@id/btn4"
         app:layout_constraintEnd_toStartOf="@id/btn2"
@@ -48,8 +47,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn2"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_2"
         app:layout_constraintBottom_toTopOf="@id/btn5"
         app:layout_constraintEnd_toStartOf="@id/btn3"
@@ -61,8 +58,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn3"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_3"
         app:layout_constraintBottom_toTopOf="@id/btn6"
         app:layout_constraintEnd_toStartOf="@id/btn_divide"
@@ -75,8 +70,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_divide"
         style="@style/right_buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_divide"
         app:layout_constraintBottom_toTopOf="@id/btn_multiply"
         app:layout_constraintEnd_toEndOf="@id/guideline_contentEnd"
@@ -88,8 +81,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn4"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_4"
         app:layout_constraintBottom_toTopOf="@+id/btn7"
         app:layout_constraintEnd_toStartOf="@+id/btn5"
@@ -100,8 +91,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn5"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_5"
         app:layout_constraintBottom_toTopOf="@id/btn8"
         app:layout_constraintEnd_toStartOf="@id/btn6"
@@ -111,8 +100,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn6"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_6"
         app:layout_constraintBottom_toTopOf="@id/btn9"
         app:layout_constraintEnd_toStartOf="@id/btn_multiply"
@@ -123,8 +110,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_multiply"
         style="@style/right_buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_multiply"
         app:layout_constraintBottom_toTopOf="@id/btn_sub"
         app:layout_constraintEnd_toEndOf="@id/guideline_contentEnd"
@@ -134,8 +119,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn7"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_7"
         app:layout_constraintBottom_toTopOf="@id/btn_dot"
         app:layout_constraintEnd_toStartOf="@id/btn8"
@@ -146,8 +129,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn8"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_8"
         app:layout_constraintBottom_toTopOf="@id/btn_0"
         app:layout_constraintEnd_toStartOf="@id/btn9"
@@ -157,8 +138,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn9"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_9"
         app:layout_constraintBottom_toTopOf="@id/btn_calculate"
         app:layout_constraintEnd_toStartOf="@id/btn_sub"
@@ -168,8 +147,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_sub"
         style="@style/right_buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_minus"
         app:layout_constraintBottom_toBottomOf="@id/btn_add"
         app:layout_constraintEnd_toEndOf="@id/guideline_contentEnd"
@@ -179,8 +156,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_dot"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_dot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_0"
@@ -191,8 +166,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_0"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_calculate"
@@ -202,8 +175,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_calculate"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:backgroundTint="@color/teal_700"
         android:text="@string/_calc"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -214,8 +185,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add"
         style="@style/right_buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guideline_contentEnd"
@@ -266,7 +235,7 @@
         android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#42BFCF"
+        android:backgroundTint="@color/color_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_settings_white_24dp" />
