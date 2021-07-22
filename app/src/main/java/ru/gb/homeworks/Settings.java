@@ -46,7 +46,7 @@ public class Settings extends AppCompatActivity implements Constants {
             recreate();
         });
         RadioGroup rg = findViewById(R.id.radioButtons);
-        ((MaterialRadioButton)rg.getChildAt(getCodeStyle())).setChecked(true);
+        ((MaterialRadioButton) rg.getChildAt(getCodeStyle())).setChecked(true);
 
     }
 
