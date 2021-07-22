@@ -1,6 +1,7 @@
 package ru.gb.homeworks;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -20,8 +21,9 @@ import com.google.android.material.radiobutton.MaterialRadioButton;
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
 
 
-public class MainActivity extends AppCompatActivity implements Constants{
-
+public class MainActivity extends AppCompatActivity implements Constants {
+    public static final String EXTRA_ACCOUNT = "SETTINGS";
+    public static final int REQUEST_CODE = 12;
     static EditText calculation;
     static TextView result;
     Calculator calculator;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements Constants{
 
         findViewById(R.id.settingsButton).setOnClickListener(v -> {
             Intent intent = new Intent(this, Settings.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CODE);
         });
 
 
@@ -72,13 +74,6 @@ public class MainActivity extends AppCompatActivity implements Constants{
     }
 
 
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        recreate();
-    }
-
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -93,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements Constants{
     }
 
 
-
     protected int codeStyleToStyleId(int codeStyle) {
         switch (codeStyle) {
             case darkTheme:
@@ -102,10 +96,22 @@ public class MainActivity extends AppCompatActivity implements Constants{
                 return R.style.AppTheme;
         }
     }
+
     protected int getCodeStyle() {
         SharedPreferences preferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
         return preferences.getInt(appTheme, lightTheme);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+
+        if (requestCode != REQUEST_CODE) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+        if (resultCode == RESULT_OK) {
+            recreate();
+        }
+    }
 
 }
