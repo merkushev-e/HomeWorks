@@ -125,7 +125,7 @@ public class Calculator implements Parcelable {
             displayCalculation = dotZero;
             dotInserted = true;
         }
-        if (displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(emptySpace)) {
+        if ((isLastCharacterEqual(emptySpace))) {
             displayCalculation = displayCalculation + dotZero;
             dotInserted = true;
         }
@@ -151,7 +151,7 @@ public class Calculator implements Parcelable {
     public void pushDivide() {
         dotInserted = false;
         if (!displayCalculation.isEmpty()) {
-            if (displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(valueBtnDot)) {
+            if (isLastCharacterEqual(valueBtnDot)) {
                 backspace();
             }
             if (operatorInserted == false) {
@@ -165,7 +165,7 @@ public class Calculator implements Parcelable {
     public void pushMultiply() {
         dotInserted = false;
         if (!displayCalculation.isEmpty()) {
-            if (displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(valueBtnDot)) {
+            if (isLastCharacterEqual(valueBtnDot)) {
                 backspace();
             }
             if (operatorInserted == false) {
@@ -179,7 +179,7 @@ public class Calculator implements Parcelable {
     public void pushSubtraction() {
         dotInserted = false;
         if (!displayCalculation.isEmpty()) {
-            if (displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(valueBtnDot)) {
+            if (isLastCharacterEqual(valueBtnDot)) {
                 backspace();
             }
             if (operatorInserted == false) {
@@ -193,7 +193,7 @@ public class Calculator implements Parcelable {
     public void pushAddition() {
         dotInserted = false;
         if (!displayCalculation.isEmpty()) {
-            if (displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(valueBtnDot)) {
+            if (isLastCharacterEqual(valueBtnDot)) {
                 backspace();
             }
             if (operatorInserted == false) {
@@ -204,8 +204,14 @@ public class Calculator implements Parcelable {
         updateCalculation();
     }
 
+    private boolean isLastCharacterEqual(String value) {
+        return displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(value);
+
+    }
+
+
     public void pushCalculate() {
-        if (operatorInserted == true && !displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(emptySpace)) {
+        if (operatorInserted == true && !(isLastCharacterEqual(emptySpace))) {
             String[] array = displayCalculation.split(emptySpace);
             switch (array[1].charAt(0)) {
                 case '+':
@@ -250,11 +256,11 @@ public class Calculator implements Parcelable {
     public void backspace() {
         if (!displayCalculation.isEmpty()) {
 
-            if (displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(valueBtnDot)) {
+            if (isLastCharacterEqual(valueBtnDot)) {
                 dotInserted = false;
             }
 
-            if (displayCalculation.substring(displayCalculation.length() - 1, displayCalculation.length()).equals(emptySpace)) {
+            if (isLastCharacterEqual(emptySpace)) {
                 displayCalculation = displayCalculation.substring(0, displayCalculation.length() - 3);
                 operatorInserted = false;
             } else {

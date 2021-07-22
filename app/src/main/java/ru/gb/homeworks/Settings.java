@@ -2,6 +2,7 @@ package ru.gb.homeworks;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.RadioGroup;
@@ -10,19 +11,29 @@ import com.google.android.material.radiobutton.MaterialRadioButton;
 
 public class Settings extends AppCompatActivity implements Constants {
 
-
+    int currentThemeCode;
+    int currentThemeResId;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int currentThemeCode = getCodeStyle();
-        int currentThemeResId = codeStyleToStyleId(currentThemeCode);
+        currentThemeCode = getCodeStyle();
+        currentThemeResId = codeStyleToStyleId(currentThemeCode);
         setTheme(currentThemeResId);
 
         setContentView(R.layout.activity_settings);
 
         initThemeButtons();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Intent intentResult = new Intent();
+        setResult(RESULT_OK, intentResult);
+        finish();
+
     }
 
     public void initThemeButtons() {
@@ -35,7 +46,7 @@ public class Settings extends AppCompatActivity implements Constants {
             recreate();
         });
         RadioGroup rg = findViewById(R.id.radioButtons);
-        ((MaterialRadioButton)rg.getChildAt(getCodeStyle())).setChecked(true);
+        ((MaterialRadioButton) rg.getChildAt(getCodeStyle())).setChecked(true);
 
     }
 
